@@ -1,23 +1,28 @@
 const path = require('path')
 
 module.exports = {
-    entry:{
-        main:'./public/src/app.jsx'
+    entry: {
+        main: './public/src/app.jsx'
     },
-    output:{
-        path:path.resolve(__dirname, 'public'),
-        filename:'bin/[name].bundle.js'
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: 'bin/[name].bundle.js'
     },
-    module:{
-        rules:[
+    module: {
+        rules: [
             {
-                test:/\.jsx?/,
-                loader:'babel-loader'
+                test: /\.jsx?/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
             }
+
         ]
     },
-    devServer:{
-        contentBase:path.join(__dirname, 'public'),
-        compress:true
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        compress: true
     }
 }
